@@ -14,6 +14,20 @@ public class CommonSteps {
         registrarElement.click();
     }
 
+    @Given("^verificar si boton siguiente esta habilitado$")
+    public void verificarSiElBotonSiguienteEstaHabilitado() throws Throwable {
+        WebElement siguienteElement = driver.findElement(By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn-danger') and contains(text(),'Next')]"));
+        if (!siguienteElement.isEnabled()) {
+            throw new RuntimeException("El botón 'Next' no está habilitado.");
+        }
+        
+        // Verificar el estilo CSS para asegurarse de que el cursor sea 'pointer'
+        String cursorStyle = siguienteElement.getCssValue("cursor");
+        if (!"pointer".equals(cursorStyle)) {
+            throw new RuntimeException("El cursor sobre el botón 'Next' no permite Continuar.");
+        }
+    }
+    
     @Given("^click al boton siguiente$")
     public void clickAlbotonSiguiente() throws Throwable {
         WebElement siguienteElement = driver.findElement(By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn-danger') and contains(text(),'Next')]"));
