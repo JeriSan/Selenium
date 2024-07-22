@@ -1,0 +1,50 @@
+package com.comsatel;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import java.util.concurrent.TimeUnit;
+
+public class AppTest {
+
+    //public String baseUrl = "https://www.google.com.pe";
+    public String baseUrl = "http://localhost:4204/regla-notificacion/listado";
+    public WebDriver driver ;
+
+    @BeforeTest
+    public void setUp() {
+
+    }
+
+    @Test
+    public void testApp() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
+
+        String URL= driver.getCurrentUrl();
+        System.out.println(URL);
+
+        String title = driver.getTitle();
+        System.out.println(title);
+
+        WebElement buscarElement = driver.findElement(By.xpath("//input[@placeholder='Buscar']"));
+        buscarElement.sendKeys("Pruebame!");
+        String value = buscarElement.getAttribute("value");
+
+        System.out.println("the value is: " + value);
+    }
+
+    @AfterTest
+    public void afterTest() {
+        driver.quit();
+        System.out.println("after test");
+    }
+}
