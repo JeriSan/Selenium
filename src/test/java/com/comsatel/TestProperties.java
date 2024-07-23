@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.comsatel.util.AppConfig;
 import com.comsatel.util.AppProperties;
 
-public class PropertiesTest {
+public class TestProperties {
 	@Test
     public void testAppProperties() {
         // Configura el contexto de Spring manualmente

@@ -34,8 +34,8 @@ Feature: US02: Registro de Usuario Web
     Given ir a la pagina de login
     Then click al boton registrar
     Then llenamos formulario de nueva cuenta
-    And verificar si boton siguiente esta habilitado
-    Then click al boton siguiente
+    Then verificar si boton siguiente esta habilitado
+    And click boton siguiente nueva cuenta
     #Then ingresamos las claves
     #Then verificar si boton siguiente esta habilitado
     #And click al boton siguiente
