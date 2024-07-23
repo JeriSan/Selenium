@@ -33,12 +33,12 @@ Feature: US02: Registro de Usuario Web
   Scenario: CP10 - Ingresar contraseñas, debe cumplir con el patrón de contraseñas
     Given ir a la pagina de login
     Then click al boton registrar
-    Then llenamos formulario de nueva cuenta
+    Then ingresar nueva cuenta valida
     Then verificar si boton siguiente esta habilitado
-    And click boton siguiente nueva cuenta
-    #Then ingresamos las claves
-    #Then verificar si boton siguiente esta habilitado
-    #And click al boton siguiente
+    Then click boton siguiente de nueva cuenta
+    Then ingresar claves validas
+    Then verificar si boton siguiente esta habilitado
+    And click boton siguiente de password
 
   @US02-CP11
   Scenario: CP11 - La contraseña y la confirmacion no coinciden
