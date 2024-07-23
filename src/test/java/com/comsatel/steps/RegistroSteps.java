@@ -39,16 +39,19 @@ public class RegistroSteps {
     public void llenamosFormularioDeNuevaCuenta() throws Throwable {
         WebElement desNombreElement = driver.findElement(By.id("nombres"));
         desNombreElement.sendKeys("Hans");
-
+        Thread.sleep(500);
+        
         WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
-        desApellidoElement.sendKeys("Llanos");
-
+        desApellidoElement.sendKeys("Llanos Llanos");
+        Thread.sleep(500);
+        
         WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
         idIdiomaElement.click();
-
+        Thread.sleep(500);
+        
         Select idIdiomaSelect = new Select(idIdiomaElement);
         idIdiomaSelect.getOptions().get(1).click();
-
+        Thread.sleep(500);
         /*
         WebElement idIdiomaElement = driver.findElement(By.id("idIdioma"));
         idIdiomaElement.click();
@@ -59,14 +62,16 @@ public class RegistroSteps {
 
         WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
         numTelefonoElement.sendKeys("111111111");
-
+        Thread.sleep(500);
+        
         WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
         fecNacimientoElement.sendKeys("01/01/2024");
-
+        Thread.sleep(500);
+        
         WebElement desCorreoElement = driver.findElement(By.id("correo"));
         desCorreoElement.sendKeys("a@a.com");
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
     }
     @Given("^Llenar formulario ingresando un correo que no cumple con la estructura$")
     public void llenarFormularioConCorreoMalaEstructura() throws Throwable {
