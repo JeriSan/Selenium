@@ -4,7 +4,7 @@ Feature: US02: Registro de Usuario Web
     Given ir a la pagina de login
     Then click al boton registrar
     Then Llenar formulario con espacios en blanco al inicio y al final de cada campo
-    And  click al boton siguiente
+    And  click boton siguiente de nueva cuenta
 
   @US02-CP02
   Scenario: CP02 - El usuario no ingresa todos los campos obligatorios
@@ -30,7 +30,7 @@ Feature: US02: Registro de Usuario Web
   @US02-CP08
   Scenario: CP08 - Registro con cuenta google con un correo no existente
     Given ir a la pagina de login
-    Then click al boton registrar
+    Then click al boton registrar google
     Then Registro con cuenta google con un correo no existente
     And click al boton siguiente
 

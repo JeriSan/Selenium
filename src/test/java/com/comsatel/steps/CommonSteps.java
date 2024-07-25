@@ -18,6 +18,12 @@ public class CommonSteps {
         registrarElement.click();
     }
 
+    @Given("^click al boton registrar google")
+    public void clickAlBotonRegistrarGoogle() throws Throwable {
+        WebElement registrarGoogleElement = driver.findElement(By.xpath("//a[contains(@class, 'btn') and contains(@class, 'registrate-google')]"));
+        registrarGoogleElement.click();
+    }
+
     @Given("^verificar si boton siguiente esta habilitado$")
     public void verificarSiElBotonSiguienteEstaHabilitado() throws Throwable {
         WebElement siguienteElement = driver.findElement(By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn-danger') and contains(text(),'Next')]"));
