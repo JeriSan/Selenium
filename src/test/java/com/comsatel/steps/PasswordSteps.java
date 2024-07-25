@@ -19,4 +19,16 @@ public class PasswordSteps {
 
         Thread.sleep(2000);
     }
+    
+    @Given("^ingresar claves validas$")
+    public void ingresarClavesValidas() throws Throwable {
+        WebElement nuevaClaveElement = driver.findElement(By.id("nuevaClave"));
+        nuevaClaveElement.sendKeys("Comsa@123");
+        Thread.sleep(500);
+        
+        WebElement repetirNuevaClaveElement = driver.findElement(By.id("repetirNuevaClave"));
+        repetirNuevaClaveElement.sendKeys("Comsa@123");
+
+        Thread.sleep(2000);
+    }
 }
