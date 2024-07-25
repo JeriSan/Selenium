@@ -1,34 +1,39 @@
 Feature: US02: Registro de Usuario Web
-  @US02-CP01	
+  @US02-CP01
   Scenario: CP01 - El sistema debe eliminar los espacios en blanco al inicio y al final del valor ingresado
     Given ir a la pagina de login
     Then click al boton registrar
     Then Llenar formulario con espacios en blanco al inicio y al final de cada campo
     And  click al boton siguiente
-  
+
   @US02-CP02
-  Scenario: CP02 - Registro de usuario, debe completar todos los campos
+  Scenario: CP02 - El usuario no ingresa todos los campos obligatorios
     Given ir a la pagina de login
     Then click al boton registrar
-    Then Llenar formulario con un campo vacio para mostrar mensaje que debe completar todos los campos
+    Then El usuario no ingresa todos los campos obligatorios
     And click al boton siguiente
-  
+
   @US02-CP05
-  Scenario: CP05 - Cuando el correo no cumple con la estructura
+  Scenario: CP05 - El correo no cumple con la estructura de correo
     Given ir a la pagina de login
     Then click al boton registrar
-    Then Llenar formulario ingresando un correo que no cumple con la estructura
+    Then El correo no cumple con la estructura de correo
+    And click al boton siguiente
 
   @US02-CP06
   Scenario: CP06 - Ingresar datos invalidos en el campo celular
     Given ir a la pagina de login
     Then click al boton registrar
-  
+    Then Ingresar datos invalidos en el campo celular
+    And click al boton siguiente
+
   @US02-CP08
-  Scenario: CP08 - Ingresar con un correo no existente
+  Scenario: CP08 - Registro con cuenta google con un correo no existente
     Given ir a la pagina de login
     Then click al boton registrar
-  
+    Then Registro con cuenta google con un correo no existente
+    And click al boton siguiente
+
   @US02-CP10
   Scenario: CP10 - Ingresar contraseñas, debe cumplir con el patrón de contraseñas
     Given ir a la pagina de login
