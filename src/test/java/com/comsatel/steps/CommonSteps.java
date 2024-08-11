@@ -52,25 +52,5 @@ public class CommonSteps {
 //        if (nuevaClaveInput == null) {
 //            throw new RuntimeException("El proceso no llevó a pagina de Password correctamente.");
 //        }
-//        if (weMsjError != null) {
-//            String mensajeTexto = weMsjError.getText();
-//            throw new RuntimeException(mensajeTexto);
-//        }else {    
-//        	try {
-//        		System.out.println("aqui voy 3");
-//        		weSpanNumero = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='03']")));
-//        	}catch(Exception e) {
-//        		System.out.println("aqui voy 4");
-//        		weSpanNumero =null;
-//            }	
-//            if (weSpanNumero == null) {
-//                throw new RuntimeException("El proceso no llevó a pagina de Verificacion correctamente.");
-//            }
-//            WebElement divPadre = weSpanNumero.findElement(By.xpath(".."));
-//            String claseDivPadre = divPadre.getAttribute("class");
-//            if (!claseDivPadre.contains("activo")) {
-//                throw new RuntimeException("La pagina de Verificacion no se muestra correctamente.");
-//            }
-//        }
 //    }
 }
