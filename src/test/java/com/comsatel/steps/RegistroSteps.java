@@ -52,33 +52,7 @@ public class RegistroSteps {
     
     @Given("^ingresar campos Nueva cuenta con espacios en blanco al inicio y al final$")
     public void ingresarNuevaCuentaConEspaciosAlInicioYFinal() throws Throwable {
-        WebElement desNombreElement = driver.findElement(By.id("nombres"));
-        desNombreElement.sendKeys(" Hans ");
-        Thread.sleep(500);
-        
-        WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
-        desApellidoElement.sendKeys(" Llanos Quiroz");
-        Thread.sleep(500);
-        
-        WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
-        idIdiomaElement.click();
-        Thread.sleep(500);
-        
-        Select idIdiomaSelect = new Select(idIdiomaElement);
-        idIdiomaSelect.getOptions().get(1).click();
-        Thread.sleep(500);
-        
-        WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
-        numTelefonoElement.sendKeys(" 976543333 ");
-        Thread.sleep(500);
-        
-        WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
-        fecNacimientoElement.sendKeys("01/01/2024");
-        Thread.sleep(500);
-        
-        WebElement desCorreoElement = driver.findElement(By.id("correo"));
-        desCorreoElement.sendKeys(" a@a.com ");
-        Thread.sleep(500);
+    	ingresarNuevaCuenta(" Hans "," Llanos Quiroz "," 976543333 ","01/02/1994"," a@a.com ");
     }
     
     @Given("^verificar campos Nueva cuenta sin espacios en blanco al inicio y al final$")
@@ -94,90 +68,17 @@ public class RegistroSteps {
     		 
     @Given("^ingresar campos Nueva cuenta sin todos los campos obligatorios$")
     public void ingresarNuevaCuentaSinTodosCamposObligatorios() throws Throwable {
-        WebElement desNombreElement = driver.findElement(By.id("nombres"));
-        desNombreElement.sendKeys("");
-
-        WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
-        desApellidoElement.sendKeys("");
-
-        WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
-        idIdiomaElement.click();
-
-        Select idIdiomaSelect = new Select(idIdiomaElement);
-        idIdiomaSelect.getOptions().get(1).click();
-
-        WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
-        numTelefonoElement.sendKeys("");
-
-        WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
-        fecNacimientoElement.sendKeys("01/02/1994");
-
-        WebElement desCorreoElement = driver.findElement(By.id("correo"));
-        desCorreoElement.sendKeys("");
-
-        Thread.sleep(3000);
+    	ingresarNuevaCuenta("","","","01/02/1994","");
     }
 
     @Given("^ingresar campos Nueva cuenta con correo no cumple estructura$")
     public void ingresarNuevaCuentaConCorreoNoCumpleEstructura() throws Throwable {
-        WebElement desNombreElement = driver.findElement(By.id("nombres"));
-        desNombreElement.sendKeys("Hans");
-        Thread.sleep(500);
-        
-        WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
-        desApellidoElement.sendKeys("Llanos Quiroz");
-        Thread.sleep(500);
-        
-        WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
-        idIdiomaElement.click();
-        Thread.sleep(500);
-        
-        Select idIdiomaSelect = new Select(idIdiomaElement);
-        idIdiomaSelect.getOptions().get(1).click();
-        Thread.sleep(500);
-        
-        WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
-        numTelefonoElement.sendKeys("977462884");
-        Thread.sleep(500);
-        
-        WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
-        fecNacimientoElement.sendKeys("01/02/1994");
-        Thread.sleep(500);
-        
-        WebElement desCorreoElement = driver.findElement(By.id("correo"));
-        desCorreoElement.sendKeys("aacom");
-        Thread.sleep(500);
+    	ingresarNuevaCuenta("Hans","Llanos Quiroz","977462884","01/02/1994","aacom");
     }
     
     @Given("^ingresar campos Nueva cuenta con celular invalido$")
     public void ingresarNuevaCuentaConCelularInvalido() throws Throwable {
-        WebElement desNombreElement = driver.findElement(By.id("nombres"));
-        desNombreElement.sendKeys("Hans");
-        Thread.sleep(500);
-        
-        WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
-        desApellidoElement.sendKeys("Llanos Quiroz");
-        Thread.sleep(500);
-        
-        WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
-        idIdiomaElement.click();
-        Thread.sleep(500);
-        
-        Select idIdiomaSelect = new Select(idIdiomaElement);
-        idIdiomaSelect.getOptions().get(1).click();
-        Thread.sleep(500);
-        
-        WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
-        numTelefonoElement.sendKeys("1234abc");
-        Thread.sleep(500);
-        
-        WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
-        fecNacimientoElement.sendKeys("01/02/1994");
-        Thread.sleep(500);
-        
-        WebElement desCorreoElement = driver.findElement(By.id("correo"));
-        desCorreoElement.sendKeys("adminqa@comsatel.com.pe");
-        Thread.sleep(500);
+    	ingresarNuevaCuenta("Hans","Llanos Quiroz","1234abc","01/02/1994","adminqa@comsatel.com.pe");
     }
 
     @Given("^Registro con cuenta google con un correo no existente$")
@@ -186,40 +87,37 @@ public class RegistroSteps {
     }
     
     @Given("^ingresar nueva cuenta valida$")
-    public void ingresarNuevaCuentaValida() throws Throwable {
-    WebElement desNombreElement = driver.findElement(By.id("nombres"));
-    desNombreElement.sendKeys("Hans");
-    Thread.sleep(500);
-
-    WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
-    desApellidoElement.sendKeys("Llanos Llanos");
-    Thread.sleep(500);
-
-    WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
-    idIdiomaElement.click();
-    Thread.sleep(500);
-
-    Select idIdiomaSelect = new Select(idIdiomaElement);
-    idIdiomaSelect.getOptions().get(1).click();
-    Thread.sleep(500);
-        /*
-        WebElement idIdiomaElement = driver.findElement(By.id("idIdioma"));
-        idIdiomaElement.click();
-        Thread.sleep(3000);
-        Select idIdiomaSelect = new Select(idIdiomaElement);
-        idIdiomaSelect.selectByVisibleText("Español");
-        */
-
-    WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
-    numTelefonoElement.sendKeys("111111111");
-    Thread.sleep(500);
-
-    WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
-    fecNacimientoElement.sendKeys("01/01/2024");
-    Thread.sleep(500);
-
-    WebElement desCorreoElement = driver.findElement(By.id("correo"));
-    desCorreoElement.sendKeys("a24073108@a.com");
-    Thread.sleep(2000);
-}
+    public void ingresarNuevaCuentaValida() throws Throwable {	    
+    	ingresarNuevaCuenta("Hans","Llanos Llanos","111111111","01/01/2024","a24073108@a.com");
+	}
+    
+    private void ingresarNuevaCuenta(String strNombre,String strApellidos,String strTelefono,String strFechaNacimiento,String strCorreo) throws Throwable{
+    	 WebElement desNombreElement = driver.findElement(By.id("nombres"));
+ 	    desNombreElement.sendKeys(strNombre);
+ 	    Thread.sleep(500);
+ 	
+ 	    WebElement desApellidoElement = driver.findElement(By.id("apellidos"));
+ 	    desApellidoElement.sendKeys(strApellidos);
+ 	    Thread.sleep(500);
+ 	
+ 	    WebElement idIdiomaElement = driver.findElement(By.id("codIdioma"));
+ 	    idIdiomaElement.click();
+ 	    Thread.sleep(500);
+ 	
+ 	    Select idIdiomaSelect = new Select(idIdiomaElement);
+ 	    idIdiomaSelect.getOptions().get(1).click();
+ 	    Thread.sleep(500);
+ 	
+ 	    WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
+ 	    numTelefonoElement.sendKeys(strTelefono);
+ 	    Thread.sleep(500);
+ 	
+ 	    WebElement fecNacimientoElement = driver.findElement(By.id("fechaNacimiento"));
+ 	    fecNacimientoElement.sendKeys(strFechaNacimiento);
+ 	    Thread.sleep(500);
+ 	
+ 	    WebElement desCorreoElement = driver.findElement(By.id("correo"));
+ 	    desCorreoElement.sendKeys(strCorreo);
+ 	    Thread.sleep(2000);
     }
+}

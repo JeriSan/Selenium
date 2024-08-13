@@ -15,6 +15,13 @@ Feature: US02: Registro de Usuario Web
     Then ingresar campos Nueva cuenta sin todos los campos obligatorios
     And verificar si boton siguiente de nueva cuenta es deshabilitado
 
+  @US02-CP03
+  Scenario: CP03 - El usuario se registra con un correo nuevo
+    Given ir a la pagina de login
+    Then click al boton registrar
+    Then ingresar campos Nueva cuenta sin todos los campos obligatorios
+    And verificar si boton siguiente de nueva cuenta es deshabilitado
+    
   @US02-CP05
   Scenario: CP05 - El correo no cumple con la estructura de correo
     Given ir a la pagina de login
