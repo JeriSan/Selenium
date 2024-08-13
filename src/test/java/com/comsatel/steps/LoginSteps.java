@@ -9,8 +9,9 @@ import org.openqa.selenium.WebElement;
 
 public class LoginSteps {
 
-    public static final String LOGIN_URL = "http://192.168.1.52:9090/auth/realms/Apps-TEMP/account";
-
+//    public static final String LOGIN_URL = "http://192.168.1.52:9090/auth/realms/Apps-TEMP/account";
+    public static final String LOGIN_URL = "http://localhost:4200";
+    
     @Given("^ir a la pagina de login$")
     public void irPaginaLogin() throws Throwable {
         driver.get(LOGIN_URL);
