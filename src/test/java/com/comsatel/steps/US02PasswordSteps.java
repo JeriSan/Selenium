@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import static com.comsatel.RunnerTest.driver;
 
-public class PasswordSteps {
+public class US02PasswordSteps {
 	private String [] strArrayIdPoliticas = {"patron1","patron5","patron8","patron9","patron13","patron17","patron21","patron25"};
 
     @Given("^limpiar claves$")

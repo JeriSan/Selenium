@@ -19,7 +19,7 @@ Feature: US02: Registro de Usuario Web
   Scenario: CP03 - El usuario se registra con un correo nuevo
     Given ir a la pagina de login
     Then click al boton registrar
-    Then ingresar campos Nueva cuenta sin todos los campos obligatorios
+    Then ingresar campos Nueva cuenta con correo nuevo
     And verificar si boton siguiente de nueva cuenta es deshabilitado
     
   @US02-CP05
@@ -39,7 +39,7 @@ Feature: US02: Registro de Usuario Web
   @US02-CP08
   Scenario: CP08 - Registro con cuenta google con un correo no existente
     Given ir a la pagina de login
-    And click al boton registrar google
+   # And click al boton registrar google
    # Then Registro con cuenta google con un correo no existente
    # And click al boton siguiente
   

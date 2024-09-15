@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import static com.comsatel.RunnerTest.driver;
 
-public class RegistroSteps {
+public class US02RegistroSteps {
 	
 	@Given("^verificar si boton siguiente de nueva cuenta es habilitado$")
     public void verificarSiBotonSiguienteEsHabilitado() throws Throwable {
@@ -71,6 +71,11 @@ public class RegistroSteps {
     	ingresarNuevaCuenta("","","","01/02/1994","");
     }
 
+    @Given("^ingresar campos Nueva cuenta con correo nuevo$")
+    public void ingresarNuevaCuentaConCorreoNuevo() throws Throwable {
+    	ingresarNuevaCuenta("Hans","Llanos Quiroz","977462884","01/02/1994","hllanos@gmail.com");
+    }
+    
     @Given("^ingresar campos Nueva cuenta con correo no cumple estructura$")
     public void ingresarNuevaCuentaConCorreoNoCumpleEstructura() throws Throwable {
     	ingresarNuevaCuenta("Hans","Llanos Quiroz","977462884","01/02/1994","aacom");
