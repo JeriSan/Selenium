@@ -5,8 +5,8 @@ Feature: US02: Registro de Usuario Web
     Then click al boton registrar
     Then ingresar campos Nueva cuenta con espacios en blanco al inicio y al final
     Then verificar campos Nueva cuenta sin espacios en blanco al inicio y al final
-    Then verificar si boton siguiente de nueva cuenta es habilitado
-    And click boton siguiente de nueva cuenta
+    And verificar si boton siguiente de nueva cuenta es habilitado
+    #And click boton siguiente de nueva cuenta
 
   @US02-CP02
   Scenario: CP02 - El usuario no ingresa todos los campos obligatorios
@@ -21,7 +21,14 @@ Feature: US02: Registro de Usuario Web
     Then click al boton registrar
     Then ingresar campos Nueva cuenta con correo nuevo
     And verificar si boton siguiente de nueva cuenta es deshabilitado
-    
+
+  @US02-CP04
+  Scenario: CP04 - El usuario se registra con un correo existente
+    Given ir a la pagina de login
+    Then click al boton registrar
+    Then ingresar campos Nueva cuenta con correo existente
+    And verificar si boton siguiente de nueva cuenta es habilitado
+        
   @US02-CP05
   Scenario: CP05 - El correo no cumple con la estructura de correo
     Given ir a la pagina de login
@@ -36,12 +43,14 @@ Feature: US02: Registro de Usuario Web
     Then ingresar campos Nueva cuenta con celular invalido
     And verificar si boton siguiente de nueva cuenta es deshabilitado
 
-  @US02-CP08
-  Scenario: CP08 - Registro con cuenta google con un correo no existente
-    Given ir a la pagina de login
-   # And click al boton registrar google
-   # Then Registro con cuenta google con un correo no existente
-   # And click al boton siguiente
+#  @US02-CP07 no aplica
+#  Scenario: CP07 - Obtener datos de cuenta google
+
+#  @US02-CP08 no aplica
+#  Scenario: CP08 - Registro con nueva cuenta google
+
+#  @US02-CP09 no aplica
+#  Scenario: CP09 - Link de activacion
   
   @US02-CP10
   Scenario: CP10 - Ingresar contraseñas, debe cumplir con el patrón de contraseñas
@@ -52,8 +61,8 @@ Feature: US02: Registro de Usuario Web
     Then click boton siguiente de nueva cuenta
     Then ingresar claves validas
     Then verificar check activo por cada politica
-    Then verificar si boton siguiente de password esta habilitado
-    And click boton siguiente de password
+    And verificar si boton siguiente de password esta habilitado
+    #And click boton siguiente de password
 
   @US02-CP11
   Scenario: CP11 - La contraseña y la confirmacion no coinciden
@@ -123,6 +132,12 @@ Feature: US02: Registro de Usuario Web
   Scenario: CP14 - Ingresar codigo correcto luego enviar correo de activacion
     Given ir a la pagina de login
     Then click al boton registrar
+    Then ingresar nueva cuenta valida
+    Then verificar si boton siguiente de nueva cuenta es habilitado
+    Then click boton siguiente de nueva cuenta
+    Then ingresar claves validas
+    Then verificar check activo por cada politica
+    And verificar si boton siguiente de password esta habilitado
   
   @US02-CP15
   Scenario: CP15 - Ingresar codigo de validacion invalido

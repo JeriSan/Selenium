@@ -1,4 +1,4 @@
-package com.comsatel.steps;
+package com.comsatel.steps.sp01;
 
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
@@ -140,13 +140,15 @@ public class US02PasswordSteps {
     public void verificarMensajeErrorPorClavesDiferentes() throws Throwable {
     	String strPolitica = "La politica por claves diferentes";
     	String strMensajeError = "El mensaje de error para "+strPolitica;
-    	String strMensaje = "Las contraseñas no coinciden";
-        WebElement alertDiv = driver.findElement(By.cssSelector("div.alert.alert-danger.d-none"));
-        String alertText = alertDiv.getText();
+    	String strMensaje = "Debes repetir el valor";//"Las contraseñas no coinciden";
+        //WebElement alertDiv = driver.findElement(By.cssSelector("div.alert.alert-danger.d-none"));
+    	WebElement weDiv = driver.findElement(By.id("patron8"));
+    	WebElement weMensaje = weDiv.findElement(By.className("col-10"));
+        String alertText = weMensaje.getText();
         if (alertText.isEmpty()) {
             throw new AssertionError(strMensajeError+" no cumple.");
         } 
-    	if(alertText != strMensaje) {
+    	if(!alertText.toLowerCase().equals(strMensaje.toLowerCase())) {
     		throw new AssertionError(strMensajeError+" debe decir: " + strMensaje);
     	}
     }

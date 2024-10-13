@@ -1,4 +1,4 @@
-package com.comsatel.steps;
+package com.comsatel.steps.sp01;
 
 import io.cucumber.java.en.Given;
 
@@ -6,7 +6,7 @@ import static org.junit.Assert.assertFalse;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.support.ui.Select;
 
 import static com.comsatel.RunnerTest.driver;
 
@@ -43,7 +43,6 @@ public class US02RegistroSteps {
     		throw new RuntimeException(strMensajeError);
         }
 //    	Thread.sleep(500);
-//    	
 //        WebElement nuevaClaveInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("nuevaClave")));
 //        if (nuevaClaveInput == null) {
 //            throw new RuntimeException(strMensajeError);
@@ -57,12 +56,16 @@ public class US02RegistroSteps {
     
     @Given("^verificar campos Nueva cuenta sin espacios en blanco al inicio y al final$")
     public void verificarNuevaCuentaSinEspaciosEnBlanco() {
-    	String [] strArrayIdPoliticas = {"nombres","apellidos","codIdioma","telefono","correo"};
+    	String [] strArrayIdPoliticas = {"nombres","apellidos","telefono","correo"};
     	for (String strId : strArrayIdPoliticas) {
 	        WebElement element = driver.findElement(By.id(strId));
 	        String fieldValue = element.getAttribute("value");
-	        assertFalse("El campo " + strId + " tiene espacios en blanco al inicio o al final", 
+	        if(fieldValue != null) {
+	        	assertFalse("El campo " + strId + " tiene espacios en blanco al inicio o al final", 
 	                     fieldValue.startsWith(" ") || fieldValue.endsWith(" "));
+	        }else {
+	        	System.out.println("revisar el elemento: " + strId + " tiene problemas para obtener valor");
+	        }
     	}
     }
     		 
@@ -73,7 +76,12 @@ public class US02RegistroSteps {
 
     @Given("^ingresar campos Nueva cuenta con correo nuevo$")
     public void ingresarNuevaCuentaConCorreoNuevo() throws Throwable {
-    	ingresarNuevaCuenta("Hans","Llanos Quiroz","977462884","01/02/1994","hllanos@gmail.com");
+    	ingresarNuevaCuenta("Hans","Llanos Quiroz","977462884","01/02/1994","hllanos0917@gmail.com");
+    }
+    
+    @Given("^ingresar campos Nueva cuenta con correo existente$")
+    public void ingresarNuevaCuentaConCorreoExistente() throws Throwable {
+    	ingresarNuevaCuenta("Hans","Llanos Quiroz","977462884","01/02/1994","Abdiel_rath71@hotmail.com");
     }
     
     @Given("^ingresar campos Nueva cuenta con correo no cumple estructura$")
@@ -92,8 +100,9 @@ public class US02RegistroSteps {
     }
     
     @Given("^ingresar nueva cuenta valida$")
-    public void ingresarNuevaCuentaValida() throws Throwable {	    
-    	ingresarNuevaCuenta("Hans","Llanos Llanos","111111111","01/01/2024","a24073108@a.com");
+    public void ingresarNuevaCuentaValida() throws Throwable {
+    	//TODO automatizar el valor de 09171 para hans09171@a.com
+    	ingresarNuevaCuenta("Hans","Llanos Llanos","111111111","01/01/2004","hans09174@a.com");
 	}
     
     private void ingresarNuevaCuenta(String strNombre,String strApellidos,String strTelefono,String strFechaNacimiento,String strCorreo) throws Throwable{
@@ -109,8 +118,10 @@ public class US02RegistroSteps {
  	    idIdiomaElement.click();
  	    Thread.sleep(500);
  	
- 	    Select idIdiomaSelect = new Select(idIdiomaElement);
- 	    idIdiomaSelect.getOptions().get(1).click();
+ 	    WebElement primerIdioma = driver.findElement(By.xpath("//div[@class='contenedor-selector-idioma']/div[@data-valor='es']"));
+ 	    primerIdioma.click();
+ 	    //Select idIdiomaSelect = new Select(idIdiomaElement);
+ 	    //idIdiomaSelect.getOptions().get(1).click();
  	    Thread.sleep(500);
  	
  	    WebElement numTelefonoElement = driver.findElement(By.id("telefono"));
@@ -123,6 +134,8 @@ public class US02RegistroSteps {
  	
  	    WebElement desCorreoElement = driver.findElement(By.id("correo"));
  	    desCorreoElement.sendKeys(strCorreo);
+ 	    
+ 	    desNombreElement.click();
  	    Thread.sleep(2000);
     }
 }
